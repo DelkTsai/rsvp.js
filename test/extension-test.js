@@ -2398,9 +2398,9 @@ describe("RSVP extensions", function() {
   if (typeof Worker !== 'undefined') {
     describe('web worker', function () {
       it('should work', function (done) {
-        console.log('worker');
-        var worker = new Worker('./woer.js');
+        var worker = new Worker('./worker.js');
         worker.addEventListener('error', function(reason) {
+          console.error(reason);
           done(new Error("Test failed:" + reason));
         });
         worker.addEventListener('message', function (e) {
